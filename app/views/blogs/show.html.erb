@@ -1,0 +1,29 @@
+<p>
+    <%= link_to 'Back' , :back, class:'btn btn-light' %>
+</p>
+
+<div class="container ms-5">
+    <div class="row">
+        <h1>Article</h1>
+        <pre>
+        <i>by: <%= @blog.admin_user.username %> </i>
+        </pre>
+        <div class="col-md-12 mt-2">
+            <%= image_tag @blog.image_as_medium, class:'mb-5' %>
+                <div class="d-flex gap-2 mt-3">
+                    <h5>Title: </h5>
+                    <p>
+                        <%= @blog.title %>
+                    </p>
+                </div>
+                <div class="d-flex gap-2">
+                    <h5>Description: </h5>
+                    <p>
+                        <%= @blog.description %>
+                    </p>
+                </div>
+                <span class="mt-3"><b>Date Posted: </b>
+                    <%= @blog.created_at.to_s(:rfc822) %>
+                </span>
+
+        </div>

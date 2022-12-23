@@ -1,0 +1,41 @@
+<div class="container">
+    
+    <p>
+        <%= link_to 'New Post' , new_blog_path, class: 'btn btn-primary' %>
+    </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>User Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <% @blogs.each do |blog| %>
+                    <tr>
+                        <td>
+                            <%= blog.id %>
+                        </td>
+                        <td>
+                            <%= blog.title %>
+                        </td>
+                        <td>
+                            <%= blog.description %>
+                        </td>
+                        <td>
+                            <%= blog.admin_user.username %>
+                        </td>
+                        <td class="d-flex gap-1">
+                            <%= link_to 'Edit' , edit_blog_path(blog.id), class:'btn btn-secondary btn-sm' %>
+                            <%= link_to 'Show' , blog, class:'btn btn-warning btn-sm' %>
+                            <%= button_to 'Delete',blog_path(blog.id), method: :delete, data: {turbo_confirm: "Are you sure you want to delete this post" }, class:'btn btn-danger btn-sm' %>
+                        </td>
+                    </tr>
+                    <% end %>
+            </tbody>
+        </table>
+</div>

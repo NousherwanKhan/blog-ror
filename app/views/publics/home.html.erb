@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="mb-5">Articles</h1>
+    <div class="row">
+        <div class="col-md-12 d-flex">
+            <div class="row">
+                <% @blogs.each do |blog| %>
+                    <div class="card col-md-4 me-auto mb-4" style="width: 18rem;">
+                        <% if blog.image.attached? %>
+                            <%= image_tag blog.image, :size=> "500x250", class:'card-img-top' %>
+                        <% end %>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= blog.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= blog.description %>
+                            </p>
+                            <%= link_to 'View Article' , blog, class:'btn btn-primary' %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

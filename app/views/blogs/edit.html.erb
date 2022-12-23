@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="col-3">
+        <%= link_to 'Back' , blogs_path, class:'btn btn-light' %>
+    </div>
+    <h1>Create From</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <%= form_with model: @blog, url: blog_path(@blog), method: :patch, local: true do |f| %>
+
+                <%= render(:partial=> 'form', :locals => {:f => f}) %>
+
+                    <%= submit_tag 'Update' , class:'btn btn-primary' %>
+                        <% end %>
+        </div>
+    </div>
+</div>
